@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mockup</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./openlayers/ol.js"></script>
+    <link rel="stylesheet" href="./openlayers/ol.css">
+    <script src="./main.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="steps">
+      <details class="step" id="step1" open>
+        <summary class="content">
+          <span>
+            Where is your crop field located?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div id="map-container">
+            <div id="map" class="map"></div>
+            <div id="coords">
+              <span>Click on the map to select location</span>
+            </div>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step2">
+        <summary disabled>
+          <span>
+            Are you primarily a cotton grower?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="button-select" onupdate="test()">
+            <button class="active">No</button>
+            <button>Yes</button>
+          </div>
+          <div class="col">
+            <label>What other crops do you grow?</label>
+            <input type="text" placeholder="corn, wheat, etc." />
+          </div>
+        </div>
+
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step3">
+        <summary disabled>
+          <span>
+            We'd like to know a bit about your cotton field before beginning
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="row">
+            <div class="col">
+              <label>​What would you say it the dominanat soil type:</label>
+              <input type="text" placeholder="example here (idk soil types)" />
+            </div>
+            <div class="col">
+              <label>What irrigation style do you use:</label>
+              <select>
+                <option value="">--Please choose an option--</option>
+                <option value="Socker Hoses">Socker Hoses</option>
+                <option value="Drip Irrigation">Drip Irrigation</option>
+                <option value="Spray Irrigation">Spray Irrigation</option>
+                <option value="Rotor System">Rotor System</option>
+                <option value="Surface Irrigation">Surface Irrigation</option>
+                <option value="Buried Reservoirs">Buried Reservoirs</option>
+                <option value="Center Pivot Irrigation">Center Pivot Irrigation</option>
+                <option value="Lateral Move Irrigation">Lateral Move Irrigation</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="col hide" id="other-irrigation-system">
+            <label>What irrigation system do you use?</label>
+            <input type="text" placeholder="Irrigation System Used" />
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Last Years Plant Date:</label>
+              <input type="date" id="last-plant-date" pattern="\d{4}-\d{2}-\d{2}"/>
+            </div>
+            <div class="col">
+              <label>Last Harvest Date:</label>
+              <input type="date" id="last-harvest-date" pattern="\d{4}-\d{2}-\d{2}"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>What is the acrage of your plot? <span class="optional">(optional)</span></label>
+              <input type="number" placeholder="100" />
+            </div>
+          </div>
+        </div>
+
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step4">
+        <summary disabled>
+          <span>
+            Which of these would you say are the top <b><u>pest</u></b> problems that you deal with?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="col">
+            <p>Rank them from MOST to LEAST common</p>
+            <ol>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step5">
+        <summary disabled>
+          <span>
+            Which of these would you say are the top <b><u>diseases</u></b> problems that you deal​ with?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="col">
+            <p>Rank them from MOST to LEAST common</p>
+            <ol>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+              <li>
+                <select>
+                  <option value="">--Please choose an option--</option>
+                </select>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step6">
+        <summary disabled>
+          <span>
+            Have you noticed any weeds around your field?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="button-select" onupdate="test()">
+            <button class="active">No</button>
+            <button>Yes</button>
+          </div>
+          <div class="input-group hide">
+            <p>Select all the weeds that you have seen around your field</p>
+            <p class="optional">(If you do not know the names of the weeds please do not select any):</p>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step7">
+        <summary disabled>
+          <span>
+            Weather Report
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <p>This is the step where we use their coordinates to look up the weather data for the past 5 years</p>
+          <div class="col">
+            <p>Looks like the {year} was particularly {hot/cool/rainy} compared to the rest of the years.</p>
+            <label>Is this what you observed at your location?​</label>
+            <div class="button-select">
+              <button class="active">No</button>
+              <button>Yes</button>
+            </div>
+            <div class="col">
+              <label>Please explain:</label>
+              <textarea rows="6"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step8">
+        <summary disabled>
+          <span>
+            Were there any particularly problematic pests or diseases this year?
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <p>Choose all that apply:</p>
+          <div class="row">
+            <div class="col">
+              <div class="input-group">
+                <label>Pests:</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="input-group">
+                <label>Diseases:</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step9">
+        <summary disabled>
+          <span>
+            Cotten Fleahoppers
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <p>Cotten fleahoppers are one such pest of cotton that can cause yield losses.</p>
+          <div class="col">
+            <label>Would you like to learn more:</label>
+            <div class="button-select">
+              <button class="active">No</button>
+              <button>Yes</button>
+            </div>
+          </div>
+          <div class="hide" id="fleahoppers">
+            <h3>Cotton Fleahoppers</h3>
+            <div class="img-with-text">
+              <img src="./assets/cotton-fleahopper-adult.png" alt="adult cotton fleahopper" />
+              <span>Source: <a href="https://extensionentomology.tamu.edu/insects/cotton-fleahopper/" target="_blank" rel="noopener noreferrer">TAMU Entomology extension</a></span>
+            </div>
+            <p>
+              Cotton fleahoppers (Pseudatomoscelis seriatus) are small (1/8 inch long), pale green hemipteran pests of cotton. They suck sap from the terminal, tender parts of the plant such as young leaves and small squares (flower buds), and cause the squares to die and fall off. Hence, it is considered a pest of cotton during the early squaring stages, but not of late-stage cotton. Cotton is especially susceptible to damage from fleahoppers during the first 3 weeks of squaring.
+            </p>
+            <div class="img-with-text">
+              <img src="./assets/cotton-life-cycle.jpeg" alt="the life cycle of cotton" />
+              <span>Source: <a href="https://doi.org/10.4236/ajmb.2020.102008" target="_blank" rel="noopener noreferrer">Aslam et al., 2020</a></span>
+            </div>
+            <p>
+              Cotton fleahoppers overwinter as eggs primarily in woolly croton; however they may also overwinter in other hosts such as horsemint and cutleaf evening primrose. Diapause exit is triggered in the Spring in response to elevation in temperatures and rainfall. Fleahopper numbers build up on these alternate hosts. When these become unfavorable for further feeding (plant matures, or due to weed control), fleahoppers seek out other hosts, including cotton, to colonize and feed from.​
+            </p>
+          </div>
+          <div class="col">
+            <p>Based on your answers from the previous section <b>it looks like you have a problem with fleahoppers.</b></p>
+            <div class="col">
+              <label>When do you usually scout for them:</label>
+              <input type="text" placeholder="an example here" />
+            </div>
+            <div class="col">
+              <label>How often:</label>
+              <input type="text" placeholder="Every friday" />
+            </div>
+            <div class="col">
+              <label>Do you use pesticide as a management strategy:</label>
+              <div class="button-select">
+                <button class="active">No</button>
+                <button>Yes</button>
+              </div>
+            </div>
+            <div class="col">
+              <label>Do you use a ground sprayer:</label>
+              <div class="button-select">
+                <button class="active">No</button>
+                <button>Yes</button>
+              </div>
+              <div class="col">
+                <label>What type of sprayer do you use:</label>
+                <input type="text" placeholder="Sprayer type" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step10">
+        <summary disabled>
+          <span>
+            Senario
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="col">
+            <p>Consider you are a cotton grower in the Texas Panhandle, and spot about <b>5 fleahoppers for every 100 plants</b>. The plants are in the second week of squaring. Here is a table with the action threshold guidelines given by Texas A&M Agrilife for spraying insecticides to control fleahoppers.​</p>
+            <div class="img-with-text">
+              <img src="./assets/cotton-fleahopper-action-thresholds-table.png" alt="Table showing the action thresholds for cotton fleahoppers" />
+              <span>Source: <a href="https://extensionentomology.tamu.edu/files/2018/03/ENTO075.pdf" target="_blank" rel="noopener noreferrer">TAMU Agrilife extension</a></span>
+            </div>
+            <div class="col">
+              <label>What action would you like to take at this moment?</label>
+              <div class="button-select">
+                <button>Spray insecticide</button>
+                <button>Wait until numbers grow to action threshold</button>
+                <button>Neither</button>
+              </div>
+              <div class="input-group">
+                <label><input type="radio"/>Spray insecticide</label>
+                <label><input type="radio"/>Wait until numbers grow to action threshold</label>
+                <label><input type="radio"/>Neither</label>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <p>You have decided to wait until the numbers build up to <b>25-30 for every 100 terminals</b> scouted. You decide to scout again in a few days, and notice numbers build to about 15 per 100 terminals. You do not traditionally employ heavy irrigation for your cotton, and have a short growing season. It's been a dry season so far. Here's the table with action thresholds again.​</p>
+            <div class="img-with-text">
+              <img src="./assets/cotton-fleahopper-action-thresholds-table.png" alt="Table showing the action thresholds for cotton fleahoppers" />
+              <span>Source: <a href="https://extensionentomology.tamu.edu/files/2018/03/ENTO075.pdf" target="_blank" rel="noopener noreferrer">TAMU Agrilife extension</a></span>
+            </div>
+            <div class="col">
+              <div class="button-select">
+                <button>Spray insecticide</button>
+                <button>Wait until numbers grow to action threshold</button>
+                <button>Neither</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <p>You have decided to wait again. You are in your third week of squaring, and have noticed a smaller square set (less number of squares) than usual. Here's the image of the cotton growing cycle again.​</p>
+            <div class="img-with-text">
+              <img src="./assets/cotton-life-cycle.jpeg" alt="the life cycle of cotton" />
+              <span>Source: <a href="https://doi.org/10.4236/ajmb.2020.102008" target="_blank" rel="noopener noreferrer">Aslam et al., 2020</a></span>
+            </div>
+            <div class="col">
+              <label>Do you change your mind? What will you do:</label>
+              <div class="button-select">
+                <button>I will spray insecticide</button>
+                <button>I will wait and take my chances</button>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <p>You have decided to wait it out. We have a few a follow up questions for you, if you don't mind answering.</p>
+            <div class="col">
+              <label>Would you have sprayed insecticide earlier if you needed to conserve trips?</label>
+              <div class="button-select">
+                <button>No</button>
+                <button>Yes</button>
+              </div>
+            </div>
+            <div class="col">
+              <label>Is anticipated rainfall a factor you consider when making the decision to spray with insecticide?</label>
+              <div class="button-select">
+                <button>No</button>
+                <button>Yes</button>
+              </div>
+            </div>
+            <div class="col">
+              <label>Do you follow the action threshold guidelines given by the local extension, or do you have your own​?</label>
+              <div class="button-select">
+                <button>I follow the guidelines</button>
+                <button>I have my own action thresholds</button>
+              </div>
+            </div>
+            <div class="col">
+              <label>In a typical year, how many squares per plant do you hope to have in the first week of squaring to achieve your desired yields?</label>
+              <input type="number" placeholder="squares per plant" />
+            </div>
+          </div>
+        </div>
+        <div class="step-navigation">
+          <button>Continue</button>
+        </div>
+      </details>
+
+      <details class="step" id="step11">
+        <summary disabled>
+          <span>
+            Online forecast models
+          </span>
+          <div class="chivron"></div>
+        </summary>
+        <div class="content">
+          <div class="col">
+            <label>Do you use any online forecasting models to inform your planting/irrigation needs and disease management for cotton or any other crop you grow?</label>
+            <div class="button-select">
+              <button class="active">No</button>
+              <button>Yes</button>
+            </div>
+
+            <div class="col hide">
+              <label>Which ones?</label>
+              <textarea rows="6" placeholder="ex: Thrips Infestation Predictor for Cotton" ></textarea>
+            </div>
+          </div>
+        </div>
+        <div id="submit">
+          <button onclick="submitForm()">SUBMIT</button>
+        </div>
+      </details>
+    </div>
+
+    <div class="hide" id="thankyou">
+      <div class="col">
+        <p>We thank you for your participation. If you have any questions or concerns, the contact details of the principal investigators are provided below:</p>
+        
+        <div class="row">
+          <div class="contact-card">
+            <h4>Thomas M. Chapell</h4>
+            <a href="mailto:thomas.chappell@tamu.edu">thomas_chappel@tamu.edu</a>
+          </div>
+          <div class="contact-card">
+            <h4>Holli R. Leggette</h4>
+            <a href="mailto:hollileggette@tamu.edu">hollileggette@tamu.edu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="text/javascript">
+    init();
+    </script>
+  </body>
+</html>

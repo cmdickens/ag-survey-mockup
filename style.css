@@ -1,0 +1,389 @@
+:root {
+  /* setup variables and stuff  */
+  --gray: #eaeaea;
+  --shadow: #d1d1d1;
+  --dark-gray: #a7a7a7;
+  --darker-gray: #707070;
+  --maroon: #500000;
+  --dark-maroon: #3c0000;
+  --blue: #003c71;
+  --green: #3ed488;
+  --red: #e4002b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: fit-content;
+}
+
+body > * {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+a {
+  color: #006483;
+}
+a:hover {
+  color: #004362;
+}
+
+p, .button-select, ol, ul {
+  margin: 5px 0;
+}
+
+label {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.col:nth-child(1), .row:nth-child(1) {
+  margin: 0;
+}
+.col, .row {
+  margin: 0.8em 0;
+}
+
+.row > .col, .col > .row {
+  margin: 0;
+}
+
+
+.col, .input-group {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.hide {
+  display: none !important;
+}
+.optional {
+  color: var(--darker-gray);
+}
+
+input, textarea, select, button {
+  background-color: white;
+  outline: none;
+  padding: 5px;
+  border: 1px solid var(--shadow);
+  border-radius: 5px;
+  transition: box-shadow ease-in-out 200ms;
+}
+
+input, select, button {
+  height: 2.5em;
+}
+
+input:focus, textarea:focus, select:focus {
+  box-shadow: inset 0 0 0 2px var(--maroon);
+}
+
+input[type="checkbox"]:focus, input[type="radio"]:focus {
+  box-shadow: none;
+}
+
+.input-group {
+  margin-top: 1em;
+}
+
+.input-group > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 2em;
+}
+.input-group > label > input[type="checkbox"], .input-group > label > input[type="radio"]{
+  margin: 0 5px 0 0;
+  height: auto;
+}
+
+/* button select custom form input */
+.button-select {
+  display: flex;
+  flex-direction: row;
+}
+.button-select > button:nth-of-type(1) {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.button-select > button {
+  background-color: #fff;
+  color: black;
+  border: 1px solid black;
+  border-right: none;
+  border-radius: 0px;
+  flex: 1 1 auto;
+  transition: all ease-in-out 300ms;
+  max-width: 15em;
+  height: auto;
+  min-height: 2.5em;
+}
+.button-select > button.active {
+  color: #fff;
+  background-color: var(--maroon);
+}
+.button-select > button:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-right: 1px solid black;
+}
+.button-select > .spacer {
+  flex-grow: 1;
+}
+
+button {
+  background-color: var(--blue);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+}
+button.disabled {
+  background-color: var(--shadow);
+  color: var(--darker-gray);
+  cursor: not-allowed;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+details {
+  background-color: #fff;
+  border-top: 1px solid var(--dark-gray);
+  margin: 0;
+}
+details:nth-of-type(1) {
+  border-top: none;
+}
+details > summary {
+  background-color: var(--gray);
+  padding: 1em 10px;
+  margin: 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  font-size: 1em; /* sets the height of text to 1em. The summary height is text + padding */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+summary > .chivron {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}
+summary > .chivron > svg {
+  height: 1em;
+}
+details[open] > summary > .chivron > svg {
+  transform: rotate(180deg);;
+}
+
+summary[disabled] {
+  pointer-events: none; /* prevents click events */
+  color: var(--darker-gray);
+}
+summary[disabled] > .chivron > svg {
+  fill: var(--darker-gray);
+}
+
+details > div.content {
+  background-color: #fff;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+details > div.content > :nth-child(1) {
+  margin-top: 0;
+}
+
+
+#steps {
+  display: flex;
+  flex-direction: column;
+  margin: 1em auto;
+  background-color: #fff;
+  box-shadow: 0 1px 2px 1px var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.step-navigation {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.img-with-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1em auto;
+}
+.img-with-text > img {
+  width: 100%;
+  max-width: 600px;
+}
+.img-with-text > span {
+  font-size: .8em;
+  margin-top: 5px;
+}
+
+
+/* STEP 1 */
+#step1 > .content > #map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 1em;
+}
+#step1 > .content > #map-container > #map {
+  height: 500px;
+  width: 100%;
+  /* margin: 0 auto; */
+}
+#step1 > .content > #map-container > #coords {
+  font-family: sans-serif;
+  position: absolute;
+  margin: 0 2em;
+  width: calc(100% - 4em);
+  top: -1em;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#step1 > .content > #map-container > #coords > span {
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px 1px var(--shadow);
+  text-align: center;
+}
+
+/* STEP 2 */
+#step2 > .content > div > input {
+  width: 20em;
+}
+/* STEP 3 */
+#step3 > .content > .row {
+}
+#step3 > .content > .row > * {
+  flex: 1;
+}
+#step3 > .content > .row > .col:nth-of-type(1) {
+  margin-right: 5px;
+}
+#step3 > .content > .row > .col:nth-of-type(2) {
+  margin-left: 5px;
+}
+
+/* STEP 8 */
+#step8 > .content > .row:nth-of-type(1) {
+  margin: 0;
+}
+#step8 > .content > .row:nth-of-type(1) > .col {
+  flex-grow: 1;
+  min-width: 295px;
+}
+
+
+/* STEP 9 */
+#step9 > .content > #fleahoppers {
+  background-color: var(--gray);
+  border: solid 1px var(--shadow);
+  box-shadow: 2px 2px 0 0px var(--shadow);
+  border-radius: 5px;
+  padding: 1em;
+  font-size: 1.02em;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#step9 > .content > #fleahoppers p {
+  line-height: 1.3;
+}
+
+
+/* STEP 11 */
+#step11 > #submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2em;
+}
+#step11 > #submit > button {
+  background-color: white;
+  color: var(--green);
+  font-weight: bold;
+  border: 3px solid var(--green);
+  width: 100%;
+  max-width: 150px;
+  transition: all ease-in-out 250ms, box-shadow ease-in-out 300ms;
+}
+#step11 > #submit > button:hover {
+  box-shadow: 0 2px 5px 1px var(--shadow);
+  background-color: var(--green);
+  color: black;
+}
+
+
+#thankyou {
+  width: 100%;
+  max-width: 600px;
+  margin: 1em auto;
+  background-color: var(--gray);
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 1px 0 1px var(--shadow);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#thankyou > .col:nth-child(1) > .row:nth-child(2) {
+  margin-top: 1em;
+  justify-content: space-around;
+}
+
+.contact-card {
+  background-color: #fff;
+  border: solid 1px var(--shadow);
+  box-shadow: 1px 1px 0 0px var(--shadow);
+  border-radius: 5px;
+  padding: 1em;
+  margin: 1em;
+}
+.contact-card h4 {
+  margin-top: 0
+}

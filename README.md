@@ -1,2 +1,2 @@
 # ag-survey-mockup
-tools used on the Ada Galaxy
+Survey mockup for website

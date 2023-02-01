@@ -1,10 +1,10 @@
 # ag-survey-mockup
-This repository has the code for survey mockup used for the AWS website
+This repository has the code for the original survey mockup that was used to develop the Facttempfiles repo
+
+github of student who worked on survey page currently hosted on AWS server: https://github.com/DevPatel3547/Facttempfiles
+
 
 AWS server hosting survey website: http://ec2-54-196-224-135.compute-1.amazonaws.com/survey
-
-github of student who worked on survey page: https://github.com/DevPatel3547/Facttempfiles
-
 
 ---
 Example of previous website with Pest Infestation Predictor: https://legacy.climate.ncsu.edu/cottonTIP
